@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
   root 'topics#index'
-  get '/signup', to: 'users#new'
-  resources :users, except: [:index, :new]
+  resources :users, except: [:index]
   resources :posts, except: [:index]
   resources :topics
+  resources :sessions, only: [:new, :create, :destroy]
+  get '/signup', to: 'users#new'
+  get '/login',  to: 'sessions#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
