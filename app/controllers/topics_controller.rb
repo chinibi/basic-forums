@@ -9,6 +9,7 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(topic_params)
+    @topic.user = current_user
     if @topic.save
       flash[:notice] = "Thread created"
       redirect_to root_path
@@ -26,11 +27,12 @@ class TopicsController < ApplicationController
   end
 
   def destroy
+    @topic = Topic.find(params[:id])
     @topic.destroy
   end
 
   private
     def topic_params
-      params.require(:topic).permit(:title)
+      params.require(:topic).permit(:title, :content)
     end
 end

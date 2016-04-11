@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(username: params[:username])
   end
 
   def edit
@@ -23,13 +23,14 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(params.require(:user).permit(:email, :password, :password_confirmation))
-      redirect_to @user , notice: "Your settings were successfully updated."
+      redirect_to root_path , notice: "Your settings were successfully updated."
     else
       render 'edit'
     end
   end
 
   def destroy
+    @user = User.find_by(username: params[:username])
     @user.destroy
     redirect_to root_path, notice: "Account successfully closed."
   end

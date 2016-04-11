@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'topics#index'
-  resources :users, except: [:index]
+  resources :users, except: [:index], param: :username
   resources :posts, except: [:index]
   resources :topics
   resources :sessions, only: [:new, :create, :destroy]
