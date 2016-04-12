@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root 'topics#index'
   resources :users, except: [:index], param: :username
-  resources :posts, except: [:index, :show]
-  resources :topics
+  resources :topics do
+    resources :posts
+  end
   resources :sessions, only: [:new, :create, :destroy]
   get '/signup', to: 'users#new'
   get '/login',  to: 'sessions#new'
