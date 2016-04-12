@@ -2,7 +2,7 @@
 <%= form_for([@topic,@post], url: topic_post_path(@post.topic, @post), html: {method: 'patch'}) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <h2><%= pluralize(@post.errors.count, "error") %> prevented this post from being saved:</h2>
 
       <ul>
       <% @post.errors.full_messages.each do |message| %>

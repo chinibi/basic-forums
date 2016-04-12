@@ -54,6 +54,6 @@ class PostsController < ApplicationController
     end
 
     def only_my_posts
-      redirect_to @post.topic, notice: 'You may only modify your own posts' if (current_user != @post.user.username)
+      redirect_to @post.topic, notice: 'You may only modify your own posts' if (current_user != @post.user)
     end
 end

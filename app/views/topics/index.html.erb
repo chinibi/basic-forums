@@ -27,7 +27,7 @@
   <% end %>
 <% end %>
 
-<div class='container'>
+
   <div id='new-thread'>
     <%= link_to "New Thread", new_topic_path %>
   </div>
@@ -36,8 +36,7 @@
       <% @topics.each do |topic| %>
         <tr><td>Posted by <%= topic.user.username %></td></tr>
         <tr><td>On <%= topic.created_at.in_time_zone(-8) %></td></tr>
-        <tr><td><%= link_to "#{topic.title}", topic_path(topic) %></td></tr>
+        <tr><td><%= link_to topic.title, topic_path(topic) %></td></tr>
       <% end %>
     </table>
   </div>
-</div>
