@@ -1,2 +1,19 @@
-<h1>Topics#show</h1>
-<p>Find me in app/views/topics/show.html.erb</p>
+<div id='new-post'>
+  <%= link_to 'New Post', new_post_path %>
+</div>
+
+<div id='posts'>
+  <table>
+    <% @topic.posts.order("created_at ASC").each do |post| %>
+      <tr>
+        <td><%= post.user.username %></td>
+      </tr>
+      <tr>
+        <td>On <%= post.created_at.in_time_zone(-8) %></td>
+      </tr>
+      <tr>
+        <td><%= post.content %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

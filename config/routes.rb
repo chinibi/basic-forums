@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'topics#index'
   resources :users, except: [:index], param: :username
-  resources :posts, except: [:index]
+  resources :posts, except: [:index, :show]
   resources :topics
   resources :sessions, only: [:new, :create, :destroy]
   get '/signup', to: 'users#new'
