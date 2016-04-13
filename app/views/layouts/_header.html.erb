@@ -1,17 +1,16 @@
-<header class="nav">
+<header id='navbar' class='navbar navbar-inverse navbar-fixed-top'>
   <div class='container'>
-    <%= link_to "forum", root_path %>
+    <%= link_to "Oekaki", root_path, id:'home-button' %>
     <nav>
-      <ul>
-        <li><%= link_to 'Home', root_path %></li>
+      <ul class='nav navbar-nav navbar-right'>
         <% if current_user %>
-          <li>Logged in as <%= current_user.username %> <small><%= link_to 'Log out', session_path('dummy'), method: :delete %></small></li>
+          <li><%= link_to current_user.username, user_path(current_user.username) %></li>
+          <li><%= link_to 'Log out', session_path('dummy'), method: :delete %></li>
         <% else %>
           <li><%= link_to 'Create Account', new_user_path %></li>
           <li><%= link_to 'Log In', login_path %></li>
         <% end %>
       </ul>
-      <div id='notices'><%= notice %></div>
     </nav>
   </div>
 </header>
