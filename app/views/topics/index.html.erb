@@ -32,11 +32,11 @@
     <%= link_to "New Thread", new_topic_path %>
   </div>
   <div id='thread-list'>
-      <% @topics.each do |topic| %>
-      <table class='listing'>
-        <tr><td>Posted by <%= topic.user.username %></td></tr>
-        <tr><td>On <%= topic.created_at.in_time_zone(-8) %></td></tr>
-        <tr><td><%= link_to topic.title, topic_path(topic) %></td></tr>
-      </table>
-      <% end %>
+    <% @topics.each do |topic| %>
+    <div class='listing'>
+      <p>Posted by <%= topic.user.username %>
+      On <%= topic.created_at.in_time_zone(-8) %></p>
+      <span><%= link_to topic.title, topic_path(topic) %></span>
+    </div>
+    <% end %>
   </div>

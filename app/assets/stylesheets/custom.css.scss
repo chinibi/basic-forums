@@ -9,6 +9,7 @@
 }
 
 #home-button {
+  font-family: 'Permanent Marker', cursive, Arial;
   float:left;
   margin-right: 10px;
   color: black;
@@ -28,9 +29,13 @@
   margin-bottom: 30px;
 }
 
-#thread-list {
-  padding: 20px;
+// #thread-list {
+//   display: flex;
+//   flex-direction: column;
+// }
 
+.listing {
+  margin-bottom: 20px;
 }
 
 body {

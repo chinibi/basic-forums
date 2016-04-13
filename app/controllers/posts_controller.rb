@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :only_my_posts, only: [:edit, :update
   ]
   def index
-    @posts = Post.all
+    @posts = Post.all.order("created_at ASC")
   end
 
   def new

@@ -3,23 +3,21 @@
 </div>
 
 <div id='posts'>
-  <table>
-    <tr><td><%= @topic.user.username %> on <%= @topic.created_at.in_time_zone(-8) %></td></tr>
-    <tr><td><%= @topic.content %></td></tr>
+  <div class='listing'>
+    <p><%= link_to @topic.user.username, user_path(@topic.user.username) %> on <%= @topic.created_at.in_time_zone(-8) %></p>
+    <p><%= @topic.content %></p>
+  </div>
 
-    <% @topic.posts.order("created_at ASC").each do |post| %>
-      <tr>
-        <td class='post-header'><%= post.user.username %> on <%= post.created_at.in_time_zone(-8) %></td>
-      </tr>
-      <tr>
-        <td>
-        <%= link_to 'Edit', edit_topic_post_path(@topic, post) %>
-        <%= link_to 'Destroy', topic_post_path(@topic, post), method: :delete, data: {confirm: 'delete this post?'} %>
-        </td>
-      </tr>
-      <tr>
-        <td class='post-content'><%= post.content %></td>
-      </tr>
-    <% end %>
-  </table>
+  <% @topic.posts.order("created_at ASC").each do |post| %>
+    <div class='listing'>
+      <p>
+        <%= link_to post.user.username, user_path(post.user.username) %> on <%= post.created_at.in_time_zone(-8) %>
+        <% if current_user == post.user %>
+          <%= link_to 'Edit', edit_topic_post_path(@topic, post) %>
+          <%= link_to 'Delete', topic_post_path(@topic, post), method: :delete, data: {confirm: 'delete this post?'} %>
+        <% end %>
+      </p>
+      <p><%= post.content %></p>
+    </div>
+  <% end %>
 </div>
