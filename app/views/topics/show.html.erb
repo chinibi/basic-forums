@@ -17,6 +17,7 @@
           <%= link_to 'Delete', topic_post_path(@topic, post), method: :delete, data: {confirm: 'delete this post?'} %>
         <% end %>
       </p>
+      <img src=<%= post.image_url %>>
       <p><%= post.content %></p>
     </div>
   <% end %>

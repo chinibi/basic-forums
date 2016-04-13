@@ -1,4 +1,10 @@
 <h1>Edit post</h1>
+<div class='canvas container'>
+  <canvas id='create-canvas' width='400' height='400'></canvas>
+</div>
+
+<!-- figure out how to DRY this file; it's nearly the same as new.html.erb
+except for the form routing -->
 <%= form_for([@topic,@post], url: topic_post_path(@post.topic, @post), html: {method: 'patch'}) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -13,8 +19,11 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :content %><br>
+    <%= f.label 'Text' %><br>
     <%= f.text_area :content, class: "form-control" %>
+  </div>
+  <div>
+    <%= f.hidden_field :image_url %>
   </div>
   <div class="actions">
     <%= f.button :class => "btn btn-primary" do %>

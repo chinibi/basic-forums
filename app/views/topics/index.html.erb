@@ -1,42 +1,12 @@
-<% if false %>
-  <%= form_for(@topic) do |f| %>
-    <% if @topic.errors.any? %>
-      <div id='error_explanation'>
-        <h2><%= pluralize(@topic.errors.count, "error") %> prevented this thread from being created.</h2>
-
-        <ul>
-        <% @topic.errors.full_messages.each do |message| %>
-          <li> <%= message %> </li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="form-group">
-      <%= f.label :title %><br>
-      <%= f.text_field :title, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.label :content %><br>
-      <%= f.text_area :content, class: "form-control" %>
-    </div>
-
-    <div class="actions">
-      <%= f.submit class: "btn btn-primary"%>
-    </div>
+<div class='create-content'>
+  <%= link_to "New Thread", new_topic_path %>
+</div>
+<div id='thread-list'>
+  <% @topics.each do |topic| %>
+  <div class='listing'>
+    <p>Posted by <%= topic.user.username %>
+    On <%= topic.created_at.in_time_zone(-8) %></p>
+    <span><%= link_to topic.title, topic_path(topic) %></span>
+  </div>
   <% end %>
-<% end %>
-
-
-  <div class='create-content'>
-    <%= link_to "New Thread", new_topic_path %>
-  </div>
-  <div id='thread-list'>
-    <% @topics.each do |topic| %>
-    <div class='listing'>
-      <p>Posted by <%= topic.user.username %>
-      On <%= topic.created_at.in_time_zone(-8) %></p>
-      <span><%= link_to topic.title, topic_path(topic) %></span>
-    </div>
-    <% end %>
-  </div>
+</div>

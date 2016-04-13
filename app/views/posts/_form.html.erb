@@ -1,3 +1,7 @@
+<div class='canvas container'>
+  <canvas id='create-canvas' width='400' height='400'></canvas>
+</div>
+
 <%= form_for([@topic,@post]) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -12,8 +16,11 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :content %><br>
+    <%= f.label 'Text' %><br>
     <%= f.text_area :content, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.hidden_field :image_url, class: "form-control" %>
   </div>
   <div class="actions">
     <%= f.button :class => "btn btn-primary" do %>

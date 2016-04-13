@@ -50,7 +50,7 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:content)
+      params.require(:post).permit(:content, :image_url)
     end
 
     def only_my_posts
