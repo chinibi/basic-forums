@@ -29,11 +29,6 @@
   margin-bottom: 30px;
 }
 
-// #thread-list {
-//   display: flex;
-//   flex-direction: column;
-// }
-
 .listing {
   margin-bottom: 20px;
 }
@@ -46,6 +41,19 @@ body {
   body {
     padding-top: 150px;
   }
+}
+
+canvas {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+
+.canvas.container {
+  border: 1px solid black;
+  width: 400px;
+  height: 400px;
+  padding: 0;
 }
 
 /* footer */
