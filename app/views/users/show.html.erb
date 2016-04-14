@@ -1,13 +1,13 @@
 <h1><%= @user.username %></h1>
 
-<table>
+<table class='table'>
  <tr>
-   <td>User ID:</td>
+   <td>User ID</td>
    <td><%= @user.id %></td>
  </tr>
  <tr>
    <td>Account created</td>
-   <td><%= @user.created_at.in_time_zone(-8) %></td>
+   <td><%= format_datetime(@user.created_at.in_time_zone(-8)) %></td>
  </tr>
 </table>
 

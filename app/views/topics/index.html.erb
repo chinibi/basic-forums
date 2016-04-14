@@ -7,7 +7,7 @@
     <div class='inner-topic panel'>
       <img class='img-responsive thumbnail' src=<%= topic.image_url %>>
       <p class='title'><%= link_to topic.title, topic_path(topic) %></p>
-      <small>by <%= topic.user.username %>
+      <small>by <%= link_to topic.user.username, user_path(topic.user)%>
       <%= time_ago_in_words(topic.created_at) %> ago</small>
     </div>
   </div>
