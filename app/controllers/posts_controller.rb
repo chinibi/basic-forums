@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:edit, :update, :destroy]
   before_action :authorize
-  before_action :only_my_posts, only: [:edit, :update
-  ]
+  before_action :only_my_posts, only: [:edit, :update]
+
   def index
     @posts = Post.all.order("created_at ASC")
   end

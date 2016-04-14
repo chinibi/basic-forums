@@ -9,7 +9,10 @@
 <body>
   <%= render 'layouts/header' %>
   <div class='main container'>
+    <%= notice %>
     <%= yield %>
+  </div>
+  <div class='footer container'>
     <%= render 'layouts/footer' %>
   </div>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

@@ -2,16 +2,19 @@
   <%= link_to 'New Post', new_topic_post_path(@topic) %>
 </div>
 
-<div id='posts'>
-  <div class='listing'>
-    <p><%= link_to @topic.user.username, user_path(@topic.user.username) %> on <%= @topic.created_at.in_time_zone(-8) %></p>
-    <p><%= @topic.content %></p>
+<div class='row' id='posts'>
+  <div class='panel listing'>
+    <p><%= link_to @topic.user.username, user_path(@topic.user.username) %> <%= time_ago_in_words(@topic.created_at) %> ago</p>
+    <div class='post-content'>
+      <img src=<%= @topic.image_url%>>
+      <p><%= @topic.content %></p>
+    </div>
   </div>
 
   <% @topic.posts.order("created_at ASC").each do |post| %>
-    <div class='listing'>
+    <div class='panel listing'>
       <p>
-        <%= link_to post.user.username, user_path(post.user.username) %> on <%= post.created_at.in_time_zone(-8) %>
+        <%= link_to post.user.username, user_path(post.user.username) %> <%= time_ago_in_words(post.created_at) %> ago
         <% if current_user == post.user %>
           <%= link_to 'Edit', edit_topic_post_path(@topic, post) %>
           <%= link_to 'Delete', topic_post_path(@topic, post), method: :delete, data: {confirm: 'delete this post?'} %>

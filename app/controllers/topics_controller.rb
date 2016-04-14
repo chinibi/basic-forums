@@ -1,4 +1,8 @@
 class TopicsController < ApplicationController
+  before_action :find_topic, only: [:edit, :show, :destroy]
+  before_action :authorize, only: [:edit, :destroy]
+  before_action :only_my_posts, only: [:edit, :update, :destroy]
+
   def index
     @topics = Topic.all.order("updated_at DESC")
   end
@@ -32,7 +36,15 @@ class TopicsController < ApplicationController
   end
 
   private
+    def find_topic
+      @topic = Topic.find(params[:id])
+    end
+
     def topic_params
-      params.require(:topic).permit(:title, :content)
+      params.require(:topic).permit(:title, :content, :image_url)
+    end
+
+    def only_my_topics
+      redirect_to root_path, notice: 'You may only modify your own posts' if (current_user != @topic.user)
     end
 end

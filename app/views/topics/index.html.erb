@@ -3,10 +3,13 @@
 </div>
 <div id='thread-list'>
   <% @topics.each do |topic| %>
-  <div class='listing'>
-    <p>Posted by <%= topic.user.username %>
-    On <%= topic.created_at.in_time_zone(-8) %></p>
-    <span><%= link_to topic.title, topic_path(topic) %></span>
+  <div class='col-lg-4 col-md-4 col-sm-4 col-xs-12 panel topic listing'>
+    <div >
+      <img class='col-lg-3 col-md-4 col-sm-4 col-xs-6 img-responsive thumbnail' src=<%= topic.image_url %>>
+      <p><%= link_to topic.title, topic_path(topic) %></p>
+      <small>Posted by <%= topic.user.username %>
+      <%= time_ago_in_words(topic.created_at) %> ago</small>
+    </div>
   </div>
   <% end %>
 </div>

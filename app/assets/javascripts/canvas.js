@@ -3,8 +3,10 @@ if (canvas.getContext) {
   var ctx = canvas.getContext('2d')
   ctx.fillStyle = 'white'
   ctx.rect(0,0,canvas.width-2,canvas.height-2)
+  // puts a white background on the canvas.
   // putting a border around a box messes up the coordinates a bit. this
-  // fudge factor of -1 allows the right and bottom borders to be visible
+  // fudge factor of -2 allows the right and bottom borders to be visible
+  // but the drawing can now appear to overflow out of those sides
   ctx.fill()
 }
 var mouseIsDown = false; // makes sure you draw by click and drag
@@ -35,11 +37,7 @@ $('#create-canvas').mousemove(function(event) {
   }
 })
 
-function finishStroke() {
-  mouseIsDown = false
-  $('#post_image_url').val(canvas.toDataURL("image/gif"))
-}
-
 $('#create-canvas').mouseup(function(event) {
-  finishStroke()
+  mouseIsDown = false
+  $('.image-url').val(canvas.toDataURL("image/gif"))
 })
