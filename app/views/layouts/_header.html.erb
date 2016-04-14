@@ -1,7 +1,9 @@
 <header id='navbar' class='navbar navbar-inverse navbar-fixed-top'>
   <div class='container'>
-    <%= link_to "Oekaki", root_path, id:'home-button' %>
     <nav>
+      <ul class='nav navbar-nav navbar-left'>
+        <li><%= link_to "Oekaki", root_path, id:'home-button' %></li>
+      </ul>
       <ul class='nav navbar-nav navbar-right'>
         <% if current_user %>
           <li><%= link_to current_user.username, user_path(current_user.username) %></li>
