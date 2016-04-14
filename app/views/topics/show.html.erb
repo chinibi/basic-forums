@@ -3,7 +3,7 @@
 </div>
 
 <div class='row' id='posts'>
-  <div class='panel listing'>
+  <div class='panel post-listing'>
     <p><%= link_to @topic.user.username, user_path(@topic.user.username) %> <%= time_ago_in_words(@topic.created_at) %> ago</p>
     <div class='post-content'>
       <img src=<%= @topic.image_url%>>
@@ -12,7 +12,7 @@
   </div>
 
   <% @topic.posts.order("created_at ASC").each do |post| %>
-    <div class='panel listing'>
+    <div class='panel post-listing'>
       <p>
         <%= link_to post.user.username, user_path(post.user.username) %> <%= time_ago_in_words(post.created_at) %> ago
         <% if current_user == post.user %>

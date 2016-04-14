@@ -29,13 +29,19 @@
   margin-bottom: 30px;
 }
 
-.listing {
-  // background-color: lightblue;
+.post-listing {
+  background-color: lightblue;
   padding: 5px 10px 5px 10px;
 }
 
 .inner-topic {
   background-color: lightblue;
+  padding: 10px 10px 10px 10px;
+
+  a, small {
+    position: relative;
+    left: 5px;
+  }
 }
 
 .topic.listing{
