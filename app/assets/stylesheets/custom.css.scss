@@ -30,15 +30,24 @@
 }
 
 .listing {
-  background-color: lightblue;
+  // background-color: lightblue;
   padding: 5px 10px 5px 10px;
 }
 
+.inner-topic {
+  background-color: lightblue;
+}
+
 .topic.listing{
-  a, small {
-    position: relative;
-    left: 10px;
-  }
+  // a, small {
+  //   position: relative;
+  //   left: 10px;
+  // }
+}
+
+p.title {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 body {
