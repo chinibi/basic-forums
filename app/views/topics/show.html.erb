@@ -5,9 +5,9 @@
 <div class='row' id='posts'>
   <div class='panel post-listing'>
     <p><%= link_to @topic.user.username, user_path(@topic.user.username) %> <%= time_ago_in_words(@topic.created_at) %> ago</p>
-    <div class='post-content'>
+    <div>
       <img src=<%= @topic.image_url%>>
-      <p><%= @topic.content %></p>
+      <p class='post-text'><%= @topic.content %></p>
     </div>
   </div>
 
@@ -20,8 +20,10 @@
           <%= link_to 'Delete', topic_post_path(@topic, post), method: :delete, data: {confirm: 'delete this post?'} %>
         <% end %>
       </p>
-      <img src=<%= post.image_url %>>
-      <p><%= post.content %></p>
+      <div class='img-container'>
+        <img class='img-responsive' src=<%= post.image_url %>>
+      </div>
+      <p class='post-text'><%= post.content %></p>
     </div>
   <% end %>
 </div>
