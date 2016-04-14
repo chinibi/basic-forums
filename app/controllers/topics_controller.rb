@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   before_action :find_topic, only: [:edit, :show, :destroy]
-  before_action :authorize, only: [:edit, :destroy]
+  before_action :authorize, only: [:new, :edit, :destroy]
   before_action :only_my_posts, only: [:edit, :update, :destroy]
 
   def index
