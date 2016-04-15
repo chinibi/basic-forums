@@ -12,6 +12,7 @@
       <small>
         by <%= link_to topic.user.username, user_path(topic.user)%>
         <%= time_ago_in_words(topic.created_at) %> ago
+        <%= link_to 'Delete', topic_path(topic), method: :delete, data: {confirm: 'Delete this thread?'} %>
       </small>
     </div>
   </div>

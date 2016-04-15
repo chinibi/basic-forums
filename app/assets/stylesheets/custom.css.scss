@@ -5,7 +5,7 @@
 }
 
 .nav.navbar-nav.navbar-right li a:hover {
-  background-color: #777;
+  color: black;
 }
 
 #home-button {
@@ -22,11 +22,11 @@
 }
 
 /* main content */
+
 // signup/login modal
 .modal-content {
   padding: 30px;
 }
-
 
 // new post/thread page
 .create-content {
@@ -48,6 +48,7 @@
   }
 
   .post-text {
+    font-size: 18px;
     white-space: pre-line;
   }
 }
