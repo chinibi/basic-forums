@@ -14,10 +14,10 @@
           </li>
         <% else %>
           <li>
-            <%= link_to 'Create Account', new_user_path, 'data-toggle' => 'modal', 'data-target' => '#myModal'%>
+            <%= link_to 'Create Account', new_user_path, 'data-toggle' => 'modal', 'data-target' => '#signup-modal'%>
           </li>
           <li>
-            <%= link_to 'Log In', login_path, 'data-toggle' => 'modal', 'data-target' => '#myModal' %>
+            <%= link_to 'Log In', login_path, 'data-toggle' => 'modal', 'data-target' => '#login-modal' %>
           </li>
         <% end %>
           <li><%= link_to 'Home', root_path %></li>
