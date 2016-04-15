@@ -13,8 +13,8 @@
             <%= link_to 'Log out', session_path('dummy'), method: :delete %>
           </li>
         <% else %>
-          <li><%= link_to 'Create Account', new_user_path %></li>
-          <li><%= link_to 'Log In', login_path %></li>
+          <li><%= link_to 'Create Account', new_user_path, 'data-toggle' => 'modal', 'data-target' => '#myModal'%></li>
+          <li><%= link_to 'Log In', login_path, 'data-toggle' => 'modal', 'data-target' => '#myModal' %></li>
         <% end %>
           <li><%= link_to 'Home', root_path %></li>
       </ul>
