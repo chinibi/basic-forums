@@ -1,7 +1,7 @@
 class TopicsController < ApplicationController
   before_action :find_topic, only: [:edit, :show, :destroy]
   before_action :authorize, only: [:new, :edit, :destroy]
-  before_action :only_my_posts, only: [:edit, :update, :destroy]
+  before_action :only_my_topics, only: [:edit, :update, :destroy]
 
   def index
     @topics = Topic.all.order("updated_at DESC")
@@ -23,16 +23,14 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
   end
 
   def edit
-    @topic = Topic.find(params[:id])
   end
 
   def destroy
-    @topic = Topic.find(params[:id])
     @topic.destroy
+    redirect_to root_path
   end
 
   private
