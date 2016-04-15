@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def authorize
     if current_user.nil?
-      redirect_to login_path, alert: 'You must be logged in to perform this action.'
+      redirect_to root_path, notice: 'You must be logged in to perform this action.'
     end
   end
 end
